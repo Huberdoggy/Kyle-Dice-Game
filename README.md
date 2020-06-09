@@ -1,4 +1,8 @@
 ## Kyle's Dice Game:
+**NOW LIVE ON HEROKU!**
+
+**https://polar-coast-79472.herokuapp.com/**
+
 Kyle's Dice Game is an application built utilizing basic Javascript, and DOM manipulation methods. The game will run until a player reaches 100 or higher, at which point, that player will be determined the winner upon 'hold'. A player can continue clicking for as many times as they wish. If the player rolls a 1, the turn will end and that player will not recieve any additional points onto their global counter. Otherwise, the players cumulative points will be added to the global counter upon clicking 'hold'.
 
 **INSTALL AND RUN: -->**
