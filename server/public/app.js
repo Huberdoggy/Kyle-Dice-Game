@@ -1,9 +1,7 @@
-let scores, roundScore, activePlayer, gamePlaying; //gamePlaying is declared here....
-let x;
+let scores, roundScore, activePlayer, gamePlaying, previousDice, x; //gamePlaying is declared here.
 init();
 
-//let x;
-
+//creat func to let user choose a winning score and store the value to x. Clear input on click of submit
 function chooseYourScore() {
   x = document.getElementById("userInput").value;
   if (x == 0 || !x) {
@@ -19,36 +17,32 @@ function chooseYourScore() {
     document.querySelector('.btn-hold').style.visibility = 'visible';
     alert('You chose: ' + x + ' as the number needed to win.');
   }
-  //console.log(x);
+  //Clear user input on Submit
   document.getElementById('userInput').value = '';
 }
 
+//Call chooseYourScore on click of Submit button (user specified score)
 document.querySelector('.btn-score').addEventListener('click', chooseYourScore);
-//chooseYourScore();
-//creat func to let user choose a winning score and store the value to x. Clear input on click of submit
-
-
-
-let previousDice;
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
   if (gamePlaying) {
     //1. use the random numb from math random
-    //dice = 6;
     dice = Math.floor(Math.random() * 6) + 1;
-    //console.log(dice);
-    //annonymous func - can only be used within scope of EventListener
+    dice2 = Math.floor(Math.random() * 6) + 1;
     //2. Displaly result
     let diceDOM = document.querySelector('.dice');
+    let diceDOM2 = document.querySelector('#dice2');
     diceDOM.style.display = 'block';
+    diceDOM2.style.display = 'block';
     diceDOM.src = 'dice-' + dice + '.png';
+    diceDOM2.src = 'dice-' + dice2 + '.png';
 
     if (dice === 6 && previousDice === 6) {
       //console.log('6 event triggered');
       roundScore = 0;
       //reset dice value
       dice = 0;
-      previousDice = 0;
+      previousDice = dice;
       console.log(dice);
       console.log(previousDice);
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -83,6 +77,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     if (scores[activePlayer] >= x) {
       console.log(scores[activePlayer]);
       document.querySelector('#name-' + activePlayer).textContent = 'WINNER!!';
+      document.querySelector('#dice2').style.display = 'none';
       document.querySelector('.dice').style.display = 'none';
       document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
       document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
@@ -104,12 +99,12 @@ function nextPlayer() {
   document.querySelector('.player-0-panel').classList.toggle('active');
   document.querySelector('.player-1-panel').classList.toggle('active');
   document.querySelector('.dice').style.display = 'none';
+  document.querySelector('#dice2').style.display = 'none';
 }
 
 document.querySelector('.btn-new').addEventListener('click', init);
 
-
-//initialize new game with a functio
+//initialize new game with a function
 function init() {
 
   document.querySelector('.btn-new').style.visibility = 'hidden';
@@ -120,10 +115,9 @@ function init() {
   roundScore = 0;
   activePlayer = 0;
   gamePlaying = true; // Must declare up top in the GLOBAL scope so whole file can access..
-  //Style property on dice class - hides the dice placeholder on load
   document.querySelector('.dice').style.display = 'none';
+  document.querySelector('#dice2').style.display = 'none';
 
-  //Set all vals to 0
   document.getElementById('score-0').textContent = '0';
   document.getElementById('score-1').textContent = '0';
   document.getElementById('current-0').textContent = '0';
@@ -137,22 +131,7 @@ function init() {
   //READD active class back to the first player..
   document.querySelector('.player-0-panel').classList.add('active');
 
-
 }
 /*Ternary...
 activePlayer = activePlayer === 0 ? 1 : 0;
-roundScore = 0;
-
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
-
-
-//Manipulates the class attr in the HTML div to highlight which player is active
-//Toggle...
-document.querySelector('.player-0-panel').classList.toggle('active');
-document.querySelector('.player-1-panel').classList.toggle('active');
-
-//ADD and REMOVE class...
-//document.querySelector('.player-0-panel').classList.remove('active');
-//document.querySelector('.player-1-panel').classList.add('active');
-document.querySelector('.dice').style.display = 'none';*/
+roundScore = 0;*/

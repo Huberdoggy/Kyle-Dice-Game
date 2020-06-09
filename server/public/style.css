@@ -108,7 +108,7 @@ body {
     margin-bottom: 130px;
 }
 
-.warning{
+.warning {
     background-color: red;
 
 }
@@ -230,7 +230,21 @@ i {
     left: 50%;
     top: 178px;
     transform: translateX(-50%);
-    height: 100px;
+    height: 80px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+#dice1 {
+    margin-top: 3rem;
+}
+
+#dice2 {
+    position: absolute;
+    margin-top: -3rem;
+    left: 50%;
+    top: 178px;
+    transform: translateX(-50%);
+    height: 80px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
@@ -249,8 +263,9 @@ i {
     font-style: normal;
     font-weight: normal;
     font-variant: all-petite-caps;
-    margin-top: 32px;
+    margin-left: -18rem;
+    margin-top: -11px;
+    padding-left: 12px;
     position: absolute;
-    margin-left: 53rem;
     text-shadow: 0px 0px 7px black;
 }
