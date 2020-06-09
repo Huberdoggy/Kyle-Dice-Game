@@ -29,9 +29,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
   if (gamePlaying) {
     //1. use the random numb from math random
     //dice = Math.floor(Math.random() * 6) + 1;
+    dice = Math.floor(Math.random() * 6) + 1;
     dice2 = Math.floor(Math.random() * 6) + 1;
-
-    dice = 6;
     //2. Displaly result
     let diceDOM = document.querySelector('.dice');
     let diceDOM2 = document.querySelector('#dice2');
@@ -42,7 +41,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
 
     if (dice === 6 && dice2 === 6) {
-      console.log('6 event triggered');
+      //console.log('6 event triggered');
       roundScore = 0;
       //reset dice value
       dice = 0;
