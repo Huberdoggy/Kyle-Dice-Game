@@ -1,4 +1,5 @@
-let scores, roundScore, activePlayer, gamePlaying, previousDice, x; //gamePlaying is declared here.
+//previousDice, previousDice2,
+let scores, roundScore, activePlayer, gamePlaying, x; //gamePlaying is declared here.
 init();
 
 //creat func to let user choose a winning score and store the value to x. Clear input on click of submit
@@ -27,8 +28,10 @@ document.querySelector('.btn-score').addEventListener('click', chooseYourScore);
 document.querySelector('.btn-roll').addEventListener('click', function () {
   if (gamePlaying) {
     //1. use the random numb from math random
-    dice = Math.floor(Math.random() * 6) + 1;
+    //dice = Math.floor(Math.random() * 6) + 1;
     dice2 = Math.floor(Math.random() * 6) + 1;
+
+    dice = 6;
     //2. Displaly result
     let diceDOM = document.querySelector('.dice');
     let diceDOM2 = document.querySelector('#dice2');
@@ -37,31 +40,33 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     diceDOM.src = 'dice-' + dice + '.png';
     diceDOM2.src = 'dice-' + dice2 + '.png';
 
-    if (dice === 6 && previousDice === 6) {
-      //console.log('6 event triggered');
+
+    if (dice === 6 && dice2 === 6) {
+      console.log('6 event triggered');
       roundScore = 0;
       //reset dice value
       dice = 0;
-      previousDice = dice;
-      console.log(dice);
-      console.log(previousDice);
+      dice2 = 0;
+      //previousDice = dice;
+      //previousDice2 = dice2;
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
       document.querySelector('#score-' + activePlayer).textContent = roundScore;
       nextPlayer();
     }
 
     //3. Update round score IF rolled num is NOT a 1
-    if (dice !== 1) {
+    if (dice !== 1 && dice2 !== 1) {
       //add score
       roundScore += dice;
+      roundScore += dice2;
       //Display round score -->
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
     } else {
       nextPlayer();
     }
     //if no 1, give previousDice the val of dice
-    previousDice = dice;
-    //console.log(previousDice);
+    //previousDice = dice;
+    //previousDice2 = dice2;
 
   }
 });
@@ -75,7 +80,6 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
     //Did player win game??
     if (scores[activePlayer] >= x) {
-      console.log(scores[activePlayer]);
       document.querySelector('#name-' + activePlayer).textContent = 'WINNER!!';
       document.querySelector('#dice2').style.display = 'none';
       document.querySelector('.dice').style.display = 'none';
