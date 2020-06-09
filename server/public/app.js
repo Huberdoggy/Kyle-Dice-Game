@@ -1,47 +1,74 @@
-/*
-GAME RULES:
-
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
-
-*/
 let scores, roundScore, activePlayer, gamePlaying; //gamePlaying is declared here....
+let x;
 init();
 
-//dice = Math.floor(Math.random() * 6) + 1; //gen random num without decimals
-//console.log(dice);
+//let x;
 
-//SETTER
-//document.querySelector('#current-' + activePlayer).textContent = dice; //redfine ID to be equal to dice variable
-//document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
+function chooseYourScore() {
+  x = document.getElementById("userInput").value;
+  if (x == 0 || !x) {
+    alert('C\'mon, how can you win before you\'ve even begun?! Enter a real number to un-hide the game buttons.');
+    document.getElementById("userInput").classList.add('warning');
+    document.querySelector('.btn-new').style.visibility = 'hidden';
+    document.querySelector('.btn-roll').style.visibility = 'hidden';
+    document.querySelector('.btn-hold').style.visibility = 'hidden';
+  } else {
+    document.getElementById("userInput").classList.remove('warning');
+    document.querySelector('.btn-new').style.visibility = 'visible';
+    document.querySelector('.btn-roll').style.visibility = 'visible';
+    document.querySelector('.btn-hold').style.visibility = 'visible';
+    alert('You chose: ' + x + ' as the number needed to win.');
+  }
+  //console.log(x);
+  document.getElementById('userInput').value = '';
+}
 
-//GETTER
-//let x = document.querySelector('#score-0').textContent; //read only the value of the content and store into var x
-//console.log(x);
+document.querySelector('.btn-score').addEventListener('click', chooseYourScore);
+//chooseYourScore();
+//creat func to let user choose a winning score and store the value to x. Clear input on click of submit
+
+
+
+let previousDice;
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
   if (gamePlaying) {
     //1. use the random numb from math random
+    //dice = 6;
     dice = Math.floor(Math.random() * 6) + 1;
+    //console.log(dice);
     //annonymous func - can only be used within scope of EventListener
     //2. Displaly result
     let diceDOM = document.querySelector('.dice');
     diceDOM.style.display = 'block';
     diceDOM.src = 'dice-' + dice + '.png';
+
+    if (dice === 6 && previousDice === 6) {
+      //console.log('6 event triggered');
+      roundScore = 0;
+      //reset dice value
+      dice = 0;
+      previousDice = 0;
+      console.log(dice);
+      console.log(previousDice);
+      document.querySelector('#current-' + activePlayer).textContent = roundScore;
+      document.querySelector('#score-' + activePlayer).textContent = roundScore;
+      nextPlayer();
+    }
+
     //3. Update round score IF rolled num is NOT a 1
     if (dice !== 1) {
       //add score
       roundScore += dice;
-      //roundScore = roundScore + dice
       //Display round score -->
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
     } else {
-      //next player
       nextPlayer();
     }
+    //if no 1, give previousDice the val of dice
+    previousDice = dice;
+    //console.log(previousDice);
+
   }
 });
 
@@ -53,7 +80,8 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     //Update the UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
     //Did player win game??
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= x) {
+      console.log(scores[activePlayer]);
       document.querySelector('#name-' + activePlayer).textContent = 'WINNER!!';
       document.querySelector('.dice').style.display = 'none';
       document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -83,6 +111,11 @@ document.querySelector('.btn-new').addEventListener('click', init);
 
 //initialize new game with a functio
 function init() {
+
+  document.querySelector('.btn-new').style.visibility = 'hidden';
+  document.querySelector('.btn-roll').style.visibility = 'hidden';
+  document.querySelector('.btn-hold').style.visibility = 'hidden';
+
   scores = [0, 0];
   roundScore = 0;
   activePlayer = 0;
@@ -103,6 +136,7 @@ function init() {
   document.querySelector('.player-1-panel').classList.remove('active');
   //READD active class back to the first player..
   document.querySelector('.player-0-panel').classList.add('active');
+
 
 }
 /*Ternary...
