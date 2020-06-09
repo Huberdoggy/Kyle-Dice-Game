@@ -1,12 +1,21 @@
 {
   "name": "dice_game",
   "version": "1.0.0",
-  "description": "",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
   "main": "index.js",
-  "scripts": {"start": "node server /server.js",
+  "scripts": {
+    "start": "node server /server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Huberdoggy/Kyle-Dice-Game.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Huberdoggy/Kyle-Dice-Game/issues"
+  },
+  "homepage": "https://github.com/Huberdoggy/Kyle-Dice-Game#readme"
 }
