@@ -211,10 +211,8 @@ i {
 #copy{
     font-size: 27pt;
     color: limegreen;
-    float: 10px, right;
-    float: 30px, right;
-    margin-left: 22em;
-    font-style: italic;
+    margin-left: 25em;
+    font-style: normal;
     font-weight: normal;
     font-variant: all-petite-caps;
 }
