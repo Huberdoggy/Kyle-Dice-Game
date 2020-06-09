@@ -4,7 +4,7 @@
   "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
   "main": "index.js",
   "scripts": {
-    "start": "node server /server.js",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/Huberdoggy/Kyle-Dice-Game/issues"
   },
-  "homepage": "https://github.com/Huberdoggy/Kyle-Dice-Game#readme"
+  "homepage": "https://github.com/Huberdoggy/Kyle-Dice-Game#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
 }
