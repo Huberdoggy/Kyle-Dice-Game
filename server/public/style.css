@@ -4,8 +4,6 @@
     /* IE9 Compat Modes */
     src: url('Monofur Bold for Powerline.eot?#iefix') format('embedded-opentype'),
         /* IE6-IE8 */
-        /*url('Monofur Bold for Powerline.woff2') format('woff2'), /* Super Modern Browsers */
-        /*url('Monofur Bold for Powerline.woff') format('woff'), /* Pretty Modern Browsers */
         url('Monofur Bold for Powerline.ttf') format('truetype'),
         /* Safari, Android, iOS */
         url('Monofur Bold for Powerline.svg#svgFontName') format('svg');
@@ -19,19 +17,13 @@
 
 }
 
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
 body {
     background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(cuphead.png);
     background-size: cover;
     background-position: center;
-    font-family: 'Monofur_Bold', Fallback, Lato;
+    font-family: 'Monofur_Bold', Fallback, 'Lato';
     font-weight: 300;
-    position: relative;
     height: 100vh;
     color: #555;
 }
@@ -79,12 +71,6 @@ body {
     padding: 100px;
 }
 
-
-
-/**********************************************
-*** PLAYERS
-**********************************************/
-
 .player-name {
     font-size: 40px;
     text-align: center;
@@ -111,10 +97,6 @@ body {
 .warning {
     background-color: red;
 
-}
-
-.active {
-    background-color: transparent;
 }
 
 .active .player-name {
