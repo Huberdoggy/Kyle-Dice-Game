@@ -6,7 +6,12 @@ init();
 function chooseYourScore() {
   x = document.getElementById("userInput").value;
   if (x == 0 || !x) {
-    alert('C\'mon, how can you win before you\'ve even begun?! Enter a real number to un-hide the game buttons.');
+    swal({
+      title: "SAY WHAT!?",
+      text: "C\'mon, how can you win before you\'ve even begun?! Enter a NUMBER greater than zero.",
+      icon: "warning",
+      button: "Aww man, okay",
+    });
     document.getElementById("userInput").classList.add('warning');
     document.querySelector('.btn-new').style.visibility = 'hidden';
     document.querySelector('.btn-roll').style.visibility = 'hidden';
@@ -16,7 +21,12 @@ function chooseYourScore() {
     document.querySelector('.btn-new').style.visibility = 'visible';
     document.querySelector('.btn-roll').style.visibility = 'visible';
     document.querySelector('.btn-hold').style.visibility = 'visible';
-    alert('You chose: ' + x + ' as the number needed to win.');
+    swal({
+      title: "GOOD LUCK!",
+      text: 'GAME ON!',
+      icon: "success",
+      button: "Cool, thanks.",
+    });
   }
   //Clear user input on Submit
   document.getElementById('userInput').value = '';
@@ -31,6 +41,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     dice = Math.floor(Math.random() * 6) + 1;
     dice2 = Math.floor(Math.random() * 6) + 1;
 
+
     //2. Displaly result
     let diceDOM = document.querySelector('.dice');
     let diceDOM2 = document.querySelector('#dice2');
@@ -42,21 +53,32 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     if (dice === 6 && dice2 === 6) {
       roundScore = 0;
-      scores[activePlayer] = roundScore;
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
       document.querySelector('#score-' + activePlayer).textContent = roundScore;
+      swal({
+        title: "OH DARN!",
+        text: "You rolled double 6's. You lose ALL of your points! Round passes to next player.",
+        icon: "info",
+        button: "Aww man, okay",
+      });
       nextPlayer();
-    }
-
-    //3. Update round score IF rolled num is NOT a 1
-    if (dice !== 1 && dice2 !== 1) {
-      //add score
-      roundScore += dice;
-      roundScore += dice2;
+    } else if (dice === 1 || dice2 === 1) {
+      roundScore = 0;
       //Display round score -->
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
-    } else {
+      swal({
+        title: "OH DARN!",
+        text: "You rolled a 1. You lose your points for THIS turn. Round passes to next player.",
+        icon: "info",
+        button: "Aww man, okay",
+      });
       nextPlayer();
+      //3. Update round score IF rolled num is NOT a 1
+    } else {
+      roundScore += dice;
+      roundScore += dice2;
+      //add score
+      document.querySelector('#current-' + activePlayer).textContent = roundScore;
     }
 
   }
@@ -87,11 +109,6 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 
 //DRY dont repeat yourself... so..
 function nextPlayer() {
-  if (dice === 6 && dice2 === 6) {
-    alert('OH NO! You rolled double 6! You lose ALL points. Round passes to next player.');
-  } else if (dice === 1 || dice2 === 1) {
-    alert('OH NO! You rolled a 1! You lose your current points this round. Round passes to next player.');
-  }
   activePlayer = activePlayer === 0 ? 1 : 0;
   roundScore = 0;
   document.getElementById('current-0').textContent = '0';
@@ -100,6 +117,7 @@ function nextPlayer() {
   document.querySelector('.player-1-panel').classList.toggle('active');
   document.querySelector('.dice').style.display = 'visible';
   document.querySelector('#dice2').style.display = 'visible';
+
 }
 
 document.querySelector('.btn-new').addEventListener('click', init);
