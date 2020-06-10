@@ -19,22 +19,21 @@
 
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(cuphead.png);
-    background-size: cover;
+    background-color: black;
     background-position: center;
     font-family: 'Monofur_Bold', Fallback, 'Lato';
     font-weight: 300;
-    height: 100vh;
-    color: #555;
 }
 
 .wrapper {
+    background-image: url('cuphead.jpg');
+    background-size: cover;
     width: 1000px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: transparent;
+
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     border-style: double;
@@ -69,6 +68,10 @@ body {
     float: left;
     height: 600px;
     padding: 100px;
+}
+
+#player1 {
+    margin-top: 0px;
 }
 
 .player-name {
@@ -178,7 +181,8 @@ i {
 }
 
 .btn-score {
-    color: limegreen;
+    color:rgb(98, 236, 44);
+    text-shadow: 0 0 3px black;
     font-size: 20pt;
     margin-top: 3px;
     margin-left: -110px;
@@ -188,22 +192,22 @@ i {
 .btn-new {
     margin-top: 18rem;
     top: 45px;
-    color: limegreen;
-
+    color:rgb(98, 236, 44);
+    text-shadow: 0 0 3px black;
     font-size: 24pt;
 }
 
 .btn-roll {
     top: 403px;
-    color: limegreen;
-
+    color:rgb(98, 236, 44);
+    text-shadow: 0 0 3px black;
     font-size: 20pt;
 }
 
 .btn-hold {
     top: 467px;
-    color: limegreen;
-
+    color:rgb(98, 236, 44);
+    text-shadow: 0 0 3px black;
     font-size: 24pt;
 }
 
@@ -246,7 +250,7 @@ i {
     font-weight: normal;
     font-variant: all-petite-caps;
     margin-left: -18rem;
-    margin-top: -11px;
+    margin-top: 12px;
     padding-left: 12px;
     position: absolute;
     text-shadow: 0px 0px 7px black;
