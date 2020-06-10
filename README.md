@@ -1,15 +1,57 @@
-## Kyle's Dice Game:
-**NOW LIVE ON HEROKU!**
+<h1 align="center">Welcome to Kyle's Dice Game 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/Huberdoggy/Kyle-Dice-Game#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/Huberdoggy/Kyle-Dice-Game/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/Huberdoggy/Kyle-Dice-Game/blob/master/LICENSE" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/github/license/Huberdoggy/dice_game" />
+  </a>
+</p>
 
-**https://polar-coast-79472.herokuapp.com/**
 
-Kyle's Dice Game is an application built utilizing basic Javascript, and DOM manipulation methods. Prior to starting, a player MUST enter a non-zero 'winning score' to reveal the game buttons in the center panel. Failure to do this, or failure to input ANY value will result in a warning dialogue and the user input will turn red until a non-zero number is provided. The game will run until a player reaches at least the score they specified at the beginning of the game, at which point, that player will be determined the winner upon 'holding'. A player can continue clicking for as many times as they wish. If the player rolls a 1, the turn will end and that player will not recieve any additional points onto their global counter. Otherwise, the players cumulative 'current' points will be added to the global counter upon clicking 'hold'. Rolling a double 6 will result in that player losing ALL points from their current AND global counter, and the turn will pass to the next player.
+### 🏠 [Homepage](https://github.com/Huberdoggy/Kyle-Dice-Game#readme)
 
-**INSTALL AND RUN: -->**
-- npm install
-- npm start
+## Install
 
-**BUILT WITH: -->**
-- Javascript
-- HTML/CSS
-- Node/Express
+```sh
+npm install
+```
+
+## Usage
+
+```sh
+npm run start
+```
+## How to Play
+
+To begin, the player must specify a non zero number. Upon clicking submit, three buttons will populate the center of the screen: New game, 'Roll, and 'Hold'. A player may continue rolling as long as he/she wishes and accumulate points to their 'Current' counter respectively. However, if the user rolls a 1 on either of the two dice, they will be alerted that they lose their points for that turn, and the next player will be up. Similarly, if a player rolls double sixes at any point,they will lose ALL points earned - both 'Current' and cumulative. If a player is satisfied with their 'Current' points at any given time, or simply wishes to pass without rolling, they may click the 'Hold' button.
+
+## Run tests
+
+```sh
+npm run test
+```
+
+## Author
+
+* Website: http://huberkyle7.blogspot.com/
+* Github: [@Huberdoggy](https://github.com/Huberdoggy)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Huberdoggy/Kyle-Dice-Game/issues). You can also take a look at the [contributing guide](https://github.com/Huberdoggy/Kyle-Dice-Game/blob/master/CONTRIBUTING.md).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+This project is [ISC](https://github.com/Huberdoggy/Kyle-Dice-Game/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
