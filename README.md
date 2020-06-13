@@ -15,6 +15,8 @@
 
 ### 🏠 [Homepage](https://github.com/Huberdoggy/Kyle-Dice-Game#readme)
 
+**NOW LIVE ON HEROKU --> https://polar-coast-79472.herokuapp.com/**
+
 ## Install
 
 ```sh
@@ -26,18 +28,12 @@ npm install
 ```sh
 npm run start
 ```
-## How to Play
+## Screenshots & Game Rules
 
 ![D2EEA80E-CB52-4A47-8085-F005C1659DBE](https://user-images.githubusercontent.com/16614357/84287943-2bba3b00-ab06-11ea-8788-15e0264f69d8.jpeg)
 ![E907F5EB-9215-49B1-8887-73E339283034](https://user-images.githubusercontent.com/16614357/84287947-2c52d180-ab06-11ea-8c35-bac0f166fee6.jpeg)
 
 To begin, the player must specify a non zero number. Upon clicking submit, three buttons will populate the center of the screen: New game, 'Roll, and 'Hold'. A player may continue rolling as long as he/she wishes and accumulate points to their 'Current' counter respectively. However, if the user rolls a 1 on either of the two dice, they will be alerted that they lose their points for that turn, and the next player will be up. Similarly, if a player rolls double sixes at any point,they will lose ALL points earned - both 'Current' and cumulative. If a player is satisfied with their 'Current' points at any given time, or simply wishes to pass without rolling, they may click the 'Hold' button.
-
-## Run tests
-
-```sh
-npm run test
-```
 
 ## Author
 

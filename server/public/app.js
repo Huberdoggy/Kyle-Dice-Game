@@ -32,8 +32,15 @@ function chooseYourScore() {
   document.getElementById('userInput').value = '';
 }
 
-//Call chooseYourScore on click of Submit button (user specified score)
+//Call chooseYourScore on click of Submit button OR ENTER on keyboard(user specified score)
 document.querySelector('.btn-score').addEventListener('click', chooseYourScore);
+
+
+document.querySelector('#userInput').addEventListener('keypress', function (e) {
+  if (e.keyCode === 13 || e.which === 13) {
+    chooseYourScore();
+  }
+});
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
   if (gamePlaying) {
